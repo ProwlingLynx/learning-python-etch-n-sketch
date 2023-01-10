@@ -1,24 +1,40 @@
-from turtle import *
+from turtle import Turtle, Screen
 
-color("green")
+joe = Turtle()
+screen = Screen()
+
+joe.color("green")
+
 
 def move_forward():
-    forward(10)
+    joe.forward(10)
+
 
 def move_backward():
-    back(10)
+    joe.back(10)
+
 
 def turn_left():
-    left(10)
+    joe.left(10)
+
 
 def turn_right():
-    right(10)
+    joe.right(10)
 
-listen()
 
-onkey(fun=move_forward, key="w")
-onkey(fun=move_backward, key="s")
-onkey(fun=turn_left, key="a")
-onkey(fun=turn_right, key="d")
+def clear_board():
+    joe.clear()
+    joe.penup()
+    joe.home()
+    joe.pendown()
 
-exitonclick()
+
+screen.listen()
+
+screen.onkey(fun=move_forward, key="w")
+screen.onkey(fun=move_backward, key="s")
+screen.onkey(fun=turn_left, key="a")
+screen.onkey(fun=turn_right, key="d")
+screen.onkey(fun=clear_board, key="space")
+
+screen.exitonclick()
